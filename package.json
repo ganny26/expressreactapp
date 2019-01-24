@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "server": "nodemon  dist/server",
-    "build": "nodemon --watch ./src/server --exec babel-node --out-dir dist/server",
+    "build": "nodemon ./src/server --exec babel-node --out-dir dist/server",
     "start:server": "npm run build && npm run server",
     "start:client": "webpack-dev-server --config ./internals/webpack/webpack.dev.config.js",
     "start":"concurrently \"npm run start:server\" \"npm run start:client\"",
