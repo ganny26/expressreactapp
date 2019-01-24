@@ -1,22 +1,21 @@
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 let clientPath = path.join(__dirname, '../../dist/')
 let appPath = path.join(__dirname, '../../src/client/index.js')
 let templatePath = path.join(__dirname, '../templates/index.html')
 
-console.log('path', path.join(__dirname, '../../dist/client'));
+console.log('path', path.join(__dirname, '../../dist/client'))
 
 module.exports = {
-
-  mode: "development",
+  mode: 'development',
   entry: {
-    app: ["@babel/polyfill", appPath]
+    app: ['@babel/polyfill', appPath]
   },
   output: {
     path: clientPath,
-    filename: "[name].[hash].bundle.js",
+    filename: '[name].[hash].bundle.js',
     pathinfo: false
   },
   devServer: {
@@ -46,8 +45,19 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          }
+        ]
       }
     ]
   },
@@ -56,7 +66,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: templatePath,
-      filename: "index.html"
+      filename: 'index.html'
     })
   ]
-};
+}

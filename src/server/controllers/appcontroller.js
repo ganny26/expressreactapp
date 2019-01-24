@@ -31,3 +31,26 @@ export function getMe(req, res) {
     }
   })
 }
+
+export function getCoinBase(req, res) {
+  res.json({
+    status: 'success',
+    payload: [{
+      "base":"BTC",
+      "price":"$3,558.70",
+      "title":"BitCoin"
+    },{
+      "base":"BTCCash",
+      "price":"$127.72",
+      "title":"BitCoin Cash"
+    },{
+      "base":"ETH",
+      "price":"115.60",
+      "title":"Ethereum"
+    },{
+      "base":"LTC",
+      "price":"32.11",
+      "title":"LiteCoin"
+    }]
+  })
+}

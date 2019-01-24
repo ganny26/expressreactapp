@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './app'
-
+import '../client/styles/app.css'
 let root = document.getElementById('app')
 ReactDOM.render(<App />, root)
 

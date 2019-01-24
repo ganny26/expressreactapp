@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { InfoCard } from './components/CardView'
+import CircularProgress from '@material-ui/core/CircularProgress'
 export default class App extends React.Component {
   state = {
-    message: null
+    data: null,
+    isLoading: true
   }
 
   componentWillMount() {
@@ -20,16 +22,20 @@ export default class App extends React.Component {
       .then(result => {
         console.log('result', result)
         this.setState({
-          message: result.payload.message
+          isLoading: false,
+          data: result.payload
         })
       })
   }
 
   render() {
-    return (
-      <div>
-        <h1>{this.state.message}</h1>
+    return !this.state.isLoading ?
+      <div className="info-container">
+        {this.state.data.map((v, i) => {
+          return <InfoCard title={v.title} description={v.price} key={i} />
+        })}
       </div>
-    )
+      :
+      <CircularProgress />
   }
 }
