@@ -1,11 +1,11 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 
-import appRoutes from './routes/approutes';
+import appRoutes from './routes/approutes'
 import apiConfig from './config/apiconfig'
-dotenv.config();
+dotenv.config()
 
-apiConfig.use(appRoutes);
+apiConfig.use(appRoutes)
 
-apiConfig.listen(process.env.PORT,(req,res)=>{
-  console.log(`server running on port ${process.env.PORT}`);
+apiConfig.listen(process.env.PORT, (req, res) => {
+  console.log(`server running on port ${process.env.PORT}`)
 })
