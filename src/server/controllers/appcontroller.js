@@ -27,7 +27,7 @@ export function getMe(req, res) {
   res.json({
     status: "success",
     payload: {
-      message: "Message from Express Backend"
+      message: "Message from Backend Express JS"
     }
   });
 }
