@@ -5,15 +5,17 @@
   "license": "MIT",
   "scripts": {
     "server": "nodemon  dist/server",
-    "build": "babel ./src/server --out-dir dist/server",
-    "start": "npm run build && npm run server",
-    "dev": "webpack-dev-server --config ./internals/webpack/webpack.dev.config.js",
+    "build": "nodemon --watch ./src/server --exec babel-node --out-dir dist/server",
+    "start:server": "npm run build && npm run server",
+    "start:client": "webpack-dev-server --config ./internals/webpack/webpack.dev.config.js",
+    "start":"concurrently \"npm run start:server\" \"npm run start:client\"",
     "prod": "webpack --config ./internals/webpack/webpack.prod.config.js"
   },
   "proxy": "http://localhost:3001",
   "dependencies": {
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
+    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
