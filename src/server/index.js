@@ -2,7 +2,6 @@ import dotenv from 'dotenv'
 
 import appRoutes from './routes/approutes'
 import apiConfig from './config/apiconfig'
-dotenv.config()
 
 apiConfig.use(appRoutes)
 
