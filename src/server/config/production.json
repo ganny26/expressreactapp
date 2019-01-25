@@ -1,0 +1,13 @@
+{
+  "app": {
+    "port": process.env.PORT
+  },
+  "db":{
+    "host":"127.0.0.1",
+    "dialect":"mysql",
+    "port":3306,
+    "database":"xchangedb",
+    "username":"root",
+    "password":"root"
+  }
+}
