@@ -2,8 +2,21 @@ import express from 'express';
 import bodyparser from 'body-parser';
 import uuid from 'uuid';
 import cors from 'cors';
+import morgan from 'morgan';
 
 const app = express();
+
+//http request reponse logging
+app.use(morgan(function (tokens, req, res) {
+    return [
+      tokens.method(req, res),
+      tokens.url(req, res),
+      tokens.status(req, res),
+      req.headers['authtoken'],
+      tokens['response-time'](req, res), 'ms'
+    ].join(' ')
+  }))
+
 
 app.disable('x-powered-by');
 
