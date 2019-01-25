@@ -1,10 +1,9 @@
-##  React Express Application
+# React Express Application
 
 Simple webapp powered by Express JS ,React ,MYSQL and Webpack4  with best practice architecture for bootstrapping apps
 
+## How to use
 
-###  How to use
----
 - `yarn install`
 - `yarn start`
 
