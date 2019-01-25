@@ -1,3 +1,4 @@
+import db from '../models';
 export function initialize(req, res) {
   res.send('OK')
 }
@@ -52,5 +53,19 @@ export function getCoinBase(req, res) {
       "price":"32.11",
       "title":"LiteCoin"
     }]
+  })
+}
+
+export function addUser(req,res){
+  console.log('req.body',req.body);
+  db.sequelize.models.User.create(req.body).then(result=>{
+    res.send({
+      "status":"OK",
+      "payload":result
+    })
+  }).catch(err=>{
+    res.send({
+      "status":false
+    })
   })
 }
