@@ -19,6 +19,9 @@ module.exports = {
     pathinfo: false
   },
   devServer: {
+    stats:{
+      modules:false
+    },
     contentBase: clientPath,
     port: 9000,
     contentBase: clientPath,

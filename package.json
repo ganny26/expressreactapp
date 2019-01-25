@@ -4,13 +4,13 @@
   "main": "dist",
   "license": "MIT",
   "scripts": {
-    "pord:server": "nodemon dist/server",
-    "build": "nodemon ./src/server --exec babel-node --out-dir dist/server",
+    "pord:server": "nodemon -q dist/server",
+    "build": "nodemon -q ./src/server --exec babel-node --out-dir dist/server",
     "start:server": "npm run build && npm run server",
     "start:client": "webpack-dev-server --config ./internals/webpack/webpack.dev.config.js",
     "start": "concurrently \"npm run server\" \"npm run start:client\"",
     "prod": "webpack --config ./internals/webpack/webpack.prod.config.js",
-    "server": "nodemon ./src/server/bin/www"
+    "server": "nodemon -q ./src/server/bin/www"
   },
   "proxy": "http://localhost:3001",
   "dependencies": {
