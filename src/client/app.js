@@ -2,10 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { InfoCard } from './components/CardView'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import ButtonAppBar from './components/Navigation';
 export default class App extends React.Component {
   state = {
     data: null,
-    isLoading: true
+    isLoading: true,
+    isLoggedIn:false
   }
 
   componentWillMount() {
@@ -28,13 +30,25 @@ export default class App extends React.Component {
       })
   }
 
+  handleLogin = () =>{
+    console.log('handleLogin');
+    this.setState({
+      isLoggedIn:!this.state.isLoggedIn
+    })
+  }
+
   render() {
     return !this.state.isLoading ?
-      <div className="info-container">
-        {this.state.data.map((v, i) => {
-          return <InfoCard title={v.title} description={v.price} key={i} />
-        })}
+      <div>
+        <ButtonAppBar isLoggedIn={this.state.isLoggedIn} handleLogin={this.handleLogin}/>
+        <div className="info-container">
+
+          {this.state.data.map((v, i) => {
+            return <InfoCard title={v.title} description={v.price} key={i} />
+          })}
+        </div>
       </div>
+
       :
       <CircularProgress />
   }
