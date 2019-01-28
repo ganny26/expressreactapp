@@ -10,7 +10,8 @@
     "start:client": "webpack-dev-server --config ./internals/webpack/webpack.dev.config.js",
     "start": "concurrently \"npm run server\" \"npm run start:client\"",
     "prod": "webpack --config ./internals/webpack/webpack.prod.config.js",
-    "server": "nodemon -q ./src/server/bin/www"
+    "server": "nodemon -q ./src/server/bin/www",
+    "test": "jest"
   },
   "proxy": "http://localhost:3001",
   "dependencies": {
